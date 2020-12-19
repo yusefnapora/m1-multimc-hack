@@ -8,33 +8,44 @@ import pathlib
 import logging
 import shutil
 
-LWJGL_JAR="/Users/jeeeesiiiicaa/Minecraft/MCAppleSilicon/libraries/lwjglfat.jar"
-ARM_LIBS_DIR="/Users/jeeeesiiiicaa/Minecraft/MCAppleSilicon/lwjglnatives"
 LOG_FILE='/tmp/mcwrap.log'
+logging.getLogger().addHandler(logging.FileHandler(LOG_FILE))
 
-logging.basicConfig(filename=LOG_FILE, level=logging.DEBUG)
+
+def this_dir():
+    return os.path.dirname(os.path.abspath(__file__))
+
+
+def lwjgl_jar_path():
+    return os.path.join(this_dir(), 'lwjglfat.jar')
+
+
+def m1_native_libs_dir():
+    return os.path.join(this_dir(), 'lwjglnatives')
 
 
 def copy_native_libs(dest_dir):
+    shutil.rmtree(dest_dir)
     pathlib.Path(dest_dir).mkdir(parents=True, exist_ok=True)
-    logging.info('copying native libs from {} to {}'.format(ARM_LIBS_DIR, dest_dir))
-    for f in glob.glob('{}/*.dylib'.format(ARM_LIBS_DIR)):
+    logging.info('copying native libs from {} to {}'.format(m1_native_libs_dir(), dest_dir))
+    for f in glob.glob('{}/*.dylib'.format(m1_native_libs_dir())):
         logging.info('copying {}'.format(os.path.basename(f)))
         shutil.copy(f, dest_dir)
 
 
 def rewrite_classpath(cp):
     jars = [j for j in cp.split(':') if 'lwjgl' not in j]
-    jars.append(LWJGL_JAR)
+    jars.append(lwjgl_jar_path())
+    logging.info('rewritten classpath: {}'.format(jars))
     return ':'.join(jars)
 
 
 def rewrite_mc_args(mc_args):
     out = []
     for a in mc_args:
-        logging.info('arg: {}'.format(a))
         if 'lwjgl' in a:
             a = rewrite_classpath(a)
+        logging.info('arg: {}'.format(a))
         out.append(a)
     return out
 
