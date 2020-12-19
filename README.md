@@ -14,9 +14,9 @@ You'll also need a standard install of MultiMC.
 
 ### Clone or Download this repo
 
-Open a terminal (`/Applications/Terminal` if you're new to command line stuff).
+Open a terminal (it's in the `Utilities` folder inside of `Applications`, if you're new to command line stuff).
 
-To make it easy to follow along, we'll make a new directory called `Minecraft` in our home folder. If you'd rather put this repo somewhere else, that's fine - the location doesn't really matter.
+To make it easy to follow along, we'll make a new directory called `Minecraft` in our home folder. If you'd rather put this repo somewhere else, that's fine - the location doesn't really matter. If you do put it somewhere else, remember to change the references to it in the commands below.
 
 The lines beginning with `#` below are comments and don't need to be entered, but it's fine to copy paste them in along with the rest.
 
@@ -33,7 +33,7 @@ git clone https://github.com/yusefnapora/m1-multimc-hack.git
 
 ### Deal with Gatekeeper
 
-At some point you might get an error message popping up saying that macOS can't verify that some `.dylib` file or other wasn't
+At some point you might get an error message popping up saying that some `.dylib` file or other wasn't
 signed and Apple can't prove that it's not malware. This happens whenever you try to run a binary file which isn't code-signed. I'm not 100% sure if this happens when you clone this repo via git, so this may be a non-issue. If it does happen, here's what to do.
 
 While you can tediously go through each library in the Finder, right click on them and "Open" them, this is super annoying. 
@@ -50,7 +50,7 @@ for f in *.dylib; do
 done
 ```
 
-As an aside, the nerdy angel on my shoulder really wants to warn against installing random pre-compiled libraries that some guy shoved onto the internet. But then I remembered that this is all in service of playing modded Minecraft, where we all happily download random jar files that somebody shoved on the internet `¯\_(ツ)_/¯`. Anyway, if you're paranoid enough to care, chances are pretty good you can figure out how to compile LWJGL on your own :)
+As an aside, the nerdy angel on my shoulder really wants to warn against installing random pre-compiled libraries that some guy shoved onto the internet. But then I remembered that this is all in service of playing modded Minecraft, where we all happily download random jar files that somebody shoved onto the internet `¯\_(ツ)_/¯`. Anyway, if you're paranoid enough to care, chances are pretty good you can figure out how to compile LWJGL on your own :)
 
 ### Configure MultiMC
 
@@ -88,8 +88,8 @@ So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that cr
 
 ## Support, etc
 
-No support here, sorry. I set this up as a favor for a friend for Xmas, and won't actually have an M1 Mac of my own for a few weeks. Also, I've got a new baby and don't really have time to help.
+No support here, sorry. I set this up as a favor for a friend for Xmas, and I won't actually have an M1 Mac of my own for a few weeks. Also, I've got a new baby and don't really have time to help.
 
-The files `lwjgl.fat.jar` and all libraries in the `lwjglnatives` folder were compiled by Tanmay from the source available at https://www.lwjgl.org/source and are subject to its [BSD-style license terms](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
+The files `lwjglfat.jar` and all libraries in the `lwjglnatives` folder were compiled by Tanmay from the source available at https://www.lwjgl.org/source and are subject to its [BSD-style license terms](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
 
-The `mcwrap.py` script is written by me (Yusef Napora), and is public domain. Please feel free to fork and improve, but expect PRs & issues, etc to be routed to the Sirius Cybernetics Corporation, Complaints Division. [Share and Enjoy!](https://hitchhikers.fandom.com/wiki/Share_and_Enjoy). 
+The `mcwrap.py` script was written by me (Yusef Napora), and is public domain. Please feel free to fork and improve, but expect PRs & issues, etc to be routed to the Sirius Cybernetics Corporation, Complaints Division. [Share and Enjoy!](https://hitchhikers.fandom.com/wiki/Share_and_Enjoy). 
