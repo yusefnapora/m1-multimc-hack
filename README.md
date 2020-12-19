@@ -14,14 +14,43 @@ You'll also need a standard install of MultiMC.
 
 ### Clone or Download this repo
 
-If you're comfortable with a terminal, open one up and clone this repo somewhere. For examples, let's keep it in `~/stuff`:
+Open a terminal (`/Applications/Terminal` if you're new to command line stuff).
+
+To make it easy to follow along, we'll make a new directory called `Minecraft` in our home folder. If you'd rather put this repo somewhere else, that's fine - the location doesn't really matter.
+
+The lines beginning with `#` below are comments and don't need to be entered, but it's fine to copy paste them in along with the rest.
 
 ```shell
-cd ~/stuff
+# Make a place to put our wrapper script and libraries
+mkdir -p ~/Minecraft
+
+# enter the new directory
+cd ~/Minecraft
+
+# clone this repo
 git clone https://github.com/yusefnapora/m1-multimc-hack.git
 ```
 
-Alternatively, you can download the repository as a zip archive and extract it somewhere.
+### Deal with Gatekeeper
+
+At some point you might get an error message popping up saying that macOS can't verify that some `.dylib` file or other wasn't
+signed and Apple can't prove that it's not malware. This happens whenever you try to run a binary file which isn't code-signed. I'm not 100% sure if this happens when you clone this repo via git, so this may be a non-issue. If it does happen, here's what to do.
+
+While you can tediously go through each library in the Finder, right click on them and "Open" them, this is super annoying. 
+
+Instead, you can strip the "quarantine bit" from the files using the command line:
+
+```shell
+# this assumes you put things in ~/Minecraft as described above; if not, cd there instead
+cd ~/Minecraft/m1-multimc-hack/lwjglnatives
+
+# loop through each library and strip the quarantine attribute
+for f in *.dylib; do                    
+  xattr -dr com.apple.quarantine $f
+done
+```
+
+As an aside, the nerdy angel on my shoulder really wants to warn against installing random pre-compiled libraries that some guy shoved onto the internet. But then I remembered that this is all in service of playing modded Minecraft, where we all happily download random jar files that somebody shoved on the internet `¯\_(ツ)_/¯`. Anyway, if you're paranoid enough to care, chances are pretty good you can figure out how to compile LWJGL on your own :)
 
 ### Configure MultiMC
 
@@ -32,10 +61,26 @@ with a list of Java versions. Find the one that says "zulu-11" and select it, th
 
 Still in the Settings pane, switch to the "Custom Commands" tab. Check the "Custom Commands" checkbox. In the "Wrapper Command" box, enter the full path to the `mcwrap.py` script from this repo, e.g. `/Users/your-username/stuff/m1-multimc-hack/mcwrap.py`.
 
+An easy way to get the full path (assuming you put this repo in `~/Minecraft`) is to open a terminal and enter:
+
+```shell
+ls ~/Minecraft/m1-multimc-hack/mcwrap.py | pbcopy
+```
+
+This will expand the `~` charater to the full path to your home directory (e.g. `/Users/yourname`), and put the path into your clipboard. Now you can paste it into the "Wrapper Command" box.
+
 That's it! You should be able to launch the instance and run with native performance.
 
 ### Optional - Mods
 
-So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that crash on launch.
+Fabric seems to work great, so that's pretty cool :) To install Fabric, go to the Version pane of the "Edit Instance" screen, then just hit "Install Fabric". You can then add Fabric mods from the "Loader Mods" pane.
 
-However, Fabric seems to work great, so that's pretty cool :) To install fabric, go to the Version pane of the "Edit Instance" screen, then just hit "Install Fabric". You can then add Fabric mods from the "Loader Mods" pane.
+So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that crash on launch. Hopefully this will eventually get sorted out, as it seems to affect most Java JDKs, not just native ARM builds. FWIW, if you get Forge crashes on launch using Rosetta, you should try using Amazon's Coretto build of OpenJDK (version 8), which doesn't seem to be affected and can run Forge, optifine, etc.
+
+## Support, etc
+
+No support here, sorry. I set this up as a favor for a friend for Xmas, and won't actually have an M1 Mac of my own for a few weeks. Also, I've got a new baby and don't really have time to help.
+
+The files `lwjgl.fat.jar` and all libraries in the `lwjglnatives` folder were compiled by Tanmay from the source available at https://www.lwjgl.org/source and are subject to its [BSD-style license terms](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
+
+The `mcwrap.py` script is written by me (Yusef Napora), and is public domain. Please feel free to fork and improve, but expect PRs & issues, etc to be routed to the Sirius Cybernetics Corporation, Complaints Division. [Share and Enjoy!](https://hitchhikers.fandom.com/wiki/Share_and_Enjoy). 
