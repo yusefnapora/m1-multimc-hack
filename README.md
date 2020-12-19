@@ -56,10 +56,19 @@ As an aside, the nerdy angel on my shoulder really wants to warn against install
 
 Create a new Minecraft instance in MultiMC (or duplicate an existing one), then click "Edit Instance" in the sidebar.
 
-Go to Settings, then make sure the "Java Installation" checkbox is checked. Then hit "Auto-detect", and it should open a window
-with a list of Java versions. Find the one that says "zulu-11" and select it, then hit OK.
+![Screenshot of MultiMC with "Edit Instance" highlighted](./screenshots/edit-instance.png)
+
+Go to Settings, then make sure the "Java Installation" checkbox is checked. Then hit "Auto-detect".
+
+![Screenshot of instance Settings pane with "Auto-detect" button highlighted](./screenshots/detect-jvm.png)
+
+It should open a window with a list of Java versions. Find the one that says "zulu-11" and select it, then hit OK.
+
+![Screenshot of JVM list with correct JVM highlighted](./screenshots/select-zulu-jvm.png)
 
 Still in the Settings pane, switch to the "Custom Commands" tab. Check the "Custom Commands" checkbox. In the "Wrapper Command" box, enter the full path to the `mcwrap.py` script from this repo, e.g. `/Users/your-username/stuff/m1-multimc-hack/mcwrap.py`.
+
+![Screenshot of Custom Commands tab, with Wrapper Command box highlighted](./screenshots/custom-commands.png)
 
 An easy way to get the full path (assuming you put this repo in `~/Minecraft`) is to open a terminal and enter:
 
