@@ -12,7 +12,7 @@ First, install the [Zulu Java 11 JDK for macOS ARM64](https://cdn.azul.com/zulu/
 
 You'll also need a standard install of MultiMC.
 
-### Clone or Download this repo
+### Clone this repo
 
 Open a terminal (it's in the `Utilities` folder inside of `Applications`, if you're new to command line stuff).
 
@@ -31,7 +31,7 @@ cd ~/Minecraft
 git clone https://github.com/yusefnapora/m1-multimc-hack.git
 ```
 
-### Deal with Gatekeeper
+### Deal with Gatekeeper (maybe)
 
 At some point you might get an error message popping up saying that some `.dylib` file or other wasn't
 signed and Apple can't prove that it's not malware. This happens whenever you try to run a binary file which isn't code-signed. I'm not 100% sure if this happens when you clone this repo via git, so this may be a non-issue. If it does happen, here's what to do.
