@@ -31,27 +31,6 @@ cd ~/Minecraft
 git clone https://github.com/yusefnapora/m1-multimc-hack.git
 ```
 
-### Deal with Gatekeeper (maybe)
-
-At some point you might get an error message popping up saying that some `.dylib` file or other wasn't
-signed and Apple can't prove that it's not malware. This happens whenever you try to run a binary file which isn't code-signed. I'm not 100% sure if this happens when you clone this repo via git, so this may be a non-issue. If it does happen, here's what to do.
-
-While you can tediously go through each library in the Finder, right click on them and "Open" them, this is super annoying. 
-
-Instead, you can strip the "quarantine bit" from the files using the command line:
-
-```shell
-# this assumes you put things in ~/Minecraft as described above; if not, cd there instead
-cd ~/Minecraft/m1-multimc-hack/lwjglnatives
-
-# loop through each library and strip the quarantine attribute
-for f in *.dylib; do                    
-  xattr -dr com.apple.quarantine $f
-done
-```
-
-As an aside, the nerdy angel on my shoulder really wants to warn against installing random pre-compiled libraries that some guy shoved onto the internet. But then I remembered that this is all in service of playing modded Minecraft, where we all happily download random jar files that somebody shoved onto the internet `¯\_(ツ)_/¯`. Anyway, if you're paranoid enough to care, chances are pretty good you can figure out how to compile LWJGL on your own :)
-
 ### Configure MultiMC
 
 Create a new Minecraft instance in MultiMC (or duplicate an existing one), then click "Edit Instance" in the sidebar.
@@ -91,6 +70,12 @@ So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that cr
 The instructions above will enable the native Apple Silicon libs for a single MultiMC instance, but if you want, you can enable them for _all_ instances. Just enable the ARM JDK and set the Wrapper Command in the main MultiMC Settings window instead of the instance settings.
 
 If you do set the configuration globally, you can always change it to an Intel JDK and remove the wrapper command on a per-instance basis, for example if you want to play with Forge mods before compatibility is sorted out.
+
+## Minecraft Version Compatibility
+
+Minecraft versions prior to 1.14 crash with OpenGL errors on launch. If you care enough, you could probably get them to work by
+figuring out which version of LWJGL those versions depend on and compiling them yourself. You'd probably also have to add some
+logic to the wrapper script to make sure you use the right LWJGL version for the corresponding Minecraft version. Not worth it to me personally, but you do you :)
 
 ## Support, etc
 
