@@ -62,7 +62,7 @@ Go to Settings, then make sure the "Java Installation" checkbox is checked. Then
 
 ![Screenshot of instance Settings pane with "Auto-detect" button highlighted](./screenshots/detect-jvm.png)
 
-It should open a window with a list of Java versions. Find the one that says "zulu-11" and select it, then hit OK.
+It should open a window with a list of Java versions. Find the one that says "zulu-11" in the path and select it, then hit OK. (You may need to resize the window to see the full path.)
 
 ![Screenshot of JVM list with correct JVM highlighted](./screenshots/select-zulu-jvm.png)
 
