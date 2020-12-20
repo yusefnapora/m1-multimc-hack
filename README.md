@@ -68,7 +68,7 @@ It should open a window with a list of Java versions. Find the one that says "zu
 
 Still in the Settings pane, switch to the "Custom Commands" tab. Check the "Custom Commands" checkbox. In the "Wrapper Command" box, enter the full path to the `mcwrap.py` script from this repo, e.g. `/Users/your-username/stuff/m1-multimc-hack/mcwrap.py`.
 
-![Screenshot of Custom Commands tab, with Wrapper Command box highlighted](./screenshots/custom-commands.png)
+![Screenshot of Custom Commands tab, with Wrapper Command box highlighted](./screenshots/custom-command.png)
 
 An easy way to get the full path (assuming you put this repo in `~/Minecraft`) is to open a terminal and enter:
 
@@ -76,7 +76,7 @@ An easy way to get the full path (assuming you put this repo in `~/Minecraft`) i
 ls ~/Minecraft/m1-multimc-hack/mcwrap.py | pbcopy
 ```
 
-This will expand the `~` character to the full path to your home directory (e.g. `/Users/yourname`), and put the path into your clipboard. Now you can paste it into the "Wrapper Command" box.
+This will expand the `~` character to the full path to your home directory (e.g. `/Users/yourname`), and copy the whole thing onto your clipboard using the `pbcopy` command. Now you can paste it into the "Wrapper Command" box.
 
 That's it! You should be able to launch the instance and run with native performance.
 
