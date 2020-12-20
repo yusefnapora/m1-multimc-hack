@@ -84,7 +84,7 @@ That's it! You should be able to launch the instance and run with native perform
 
 Fabric seems to work great, so that's pretty cool :) To install Fabric, go to the Version pane of the "Edit Instance" screen, then just hit "Install Fabric". You can then add Fabric mods from the "Loader Mods" pane.
 
-So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that crash on launch. Hopefully this will eventually get sorted out, as it seems to affect most Java JDKs, not just native ARM builds. FWIW, if you get Forge crashes on launch using Rosetta, you should try using Amazon's Coretto build of OpenJDK (version 8), which doesn't seem to be affected and can run Forge, optifine, etc.
+So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that crash on launch. Hopefully this will eventually get sorted out, as it seems to affect most Java JDKs, not just native ARM builds. FWIW, if you get Forge crashes on launch using Rosetta, you should try using [Amazon's Corretto build of OpenJDK 8](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html), which doesn't seem to be affected and can run Forge, optifine, etc.
 
 ## Support, etc
 
