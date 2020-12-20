@@ -86,6 +86,13 @@ Fabric seems to work great, so that's pretty cool :) To install Fabric, go to th
 
 So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that crash on launch. Hopefully this will eventually get sorted out, as it seems to affect most Java JDKs, not just native ARM builds. FWIW, if you get Forge crashes on launch using Rosetta, you should try using [Amazon's Corretto build of OpenJDK 8](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html), which doesn't seem to be affected and can run Forge, optifine, etc.
 
+## Optional - Global Configuration
+
+The instructions above will enable the native Apple Silicon libs for a single MultiMC instance, but if want, you can enable them
+for _all_ instances. Just enable the ARM JDK and set the Wrapper Command in the main MultiMC Settings window instead of the instance settings.
+
+If you do set the configuration globally, you can always change it to an Intel JDK and remove the wrapper command on a per-instance basis, for example if you want to play with Forge mods before compatibility is sorted out.
+
 ## Support, etc
 
 No support here, sorry. I set this up as a favor for a friend for Xmas, and I won't actually have an M1 Mac of my own for a few weeks. Also, I've got a new baby and don't really have time to help.
