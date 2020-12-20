@@ -76,7 +76,7 @@ An easy way to get the full path (assuming you put this repo in `~/Minecraft`) i
 ls ~/Minecraft/m1-multimc-hack/mcwrap.py | pbcopy
 ```
 
-This will expand the `~` charater to the full path to your home directory (e.g. `/Users/yourname`), and put the path into your clipboard. Now you can paste it into the "Wrapper Command" box.
+This will expand the `~` character to the full path to your home directory (e.g. `/Users/yourname`), and put the path into your clipboard. Now you can paste it into the "Wrapper Command" box.
 
 That's it! You should be able to launch the instance and run with native performance.
 
