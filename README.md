@@ -88,8 +88,7 @@ So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that cr
 
 ## Optional - Global Configuration
 
-The instructions above will enable the native Apple Silicon libs for a single MultiMC instance, but if want, you can enable them
-for _all_ instances. Just enable the ARM JDK and set the Wrapper Command in the main MultiMC Settings window instead of the instance settings.
+The instructions above will enable the native Apple Silicon libs for a single MultiMC instance, but if you want, you can enable them for _all_ instances. Just enable the ARM JDK and set the Wrapper Command in the main MultiMC Settings window instead of the instance settings.
 
 If you do set the configuration globally, you can always change it to an Intel JDK and remove the wrapper command on a per-instance basis, for example if you want to play with Forge mods before compatibility is sorted out.
 
