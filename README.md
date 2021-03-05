@@ -8,7 +8,7 @@ This repo contains a wrapper script to be used with [MultiMC](https://multimc.or
 
 ### Pre-requisites
 
-First, install the [Zulu Java 11 JDK for macOS ARM64](https://cdn.azul.com/zulu/bin/zulu11.43.1015-ca-jdk11.0.9.1-macos_aarch64.dmg).
+First, install the [Zulu Java 8 JRE for macOS ARM64](https://cdn.azul.com/zulu/bin/zulu8.52.0.23-ca-jre8.0.282-macosx_aarch64.dmg).
 
 You'll also need a standard install of MultiMC.
 
@@ -61,9 +61,7 @@ That's it! You should be able to launch the instance and run with native perform
 
 ### Optional - Mods
 
-Fabric seems to work great, so that's pretty cool :) To install Fabric, go to the Version pane of the "Edit Instance" screen, then just hit "Install Fabric". You can then add Fabric mods from the "Loader Mods" pane.
-
-So far, I haven't had any luck running Forge - I keep hitting LWJGL bugs that crash on launch. Hopefully this will eventually get sorted out, as it seems to affect most Java JDKs, not just native ARM builds. FWIW, if you get Forge crashes on launch using Rosetta, you should try using [Amazon's Corretto build of OpenJDK 8](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html), which doesn't seem to be affected and can run Forge, optifine, etc.
+Mods should work fine in this fork provided that you use Java 8 instead of 11.
 
 ## Optional - Global Configuration
 
@@ -73,14 +71,12 @@ If you do set the configuration globally, you can always change it to an Intel J
 
 ## Minecraft Version Compatibility
 
-Minecraft versions prior to 1.14 crash with OpenGL errors on launch. If you care enough, you could probably get them to work by
-figuring out which version of LWJGL those versions depend on and compiling them yourself. You'd probably also have to add some
-logic to the wrapper script to make sure you use the right LWJGL version for the corresponding Minecraft version. Not worth it to me personally, but you do you :)
+All versions of Minecraft should work in this fork
 
 ## Support, etc
 
-No support here, sorry. I set this up as a favor for a friend for Xmas, and I won't actually have an M1 Mac of my own for a few weeks. Also, I've got a new baby and don't really have time to help.
+I did none of the work here except for stitching files from a few competing forks together.
 
 The files `lwjglfat.jar` and all libraries in the `lwjglnatives` folder were compiled by Tanmay from the source available at https://www.lwjgl.org/source and are subject to its [BSD-style license terms](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
 
-The `mcwrap.py` script was written by me (Yusef Napora), and is public domain. Please feel free to fork and improve, but expect PRs & issues, etc to be routed to the Sirius Cybernetics Corporation, Complaints Division. [Share and Enjoy!](https://hitchhikers.fandom.com/wiki/Share_and_Enjoy)
+The `mcwrap.py` script was written by Yusef Napora, and is public domain. Please feel free to fork and improve, but expect PRs & issues, etc to be routed to the Sirius Cybernetics Corporation, Complaints Division. [Share and Enjoy!](https://hitchhikers.fandom.com/wiki/Share_and_Enjoy)
