@@ -8,13 +8,13 @@ import pathlib
 import logging
 import shutil
 import json
+import getpass
 from os import listdir
 from os.path import isfile, join
 
-LOG_FILE='/Users/toshitchawda/mcwrap.log'
+user = getpass.getuser()
+LOG_FILE='/Users/%s/mcwrap.log' % (user)
 logging.getLogger().addHandler(logging.FileHandler(LOG_FILE))
-
-
 
 def lwjglver():
     inst_dir = os.environ["INST_DIR"]
