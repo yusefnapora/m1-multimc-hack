@@ -11,10 +11,8 @@ import json
 from os import listdir
 from os.path import isfile, join
 
-LOG_FILE='/Users/toshitchawda/mcwrap.log'
+LOG_FILE='/tmp/mcwrap.log'
 logging.getLogger().addHandler(logging.FileHandler(LOG_FILE))
-
-
 
 def lwjglver():
     inst_dir = os.environ["INST_DIR"]
