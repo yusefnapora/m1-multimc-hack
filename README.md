@@ -2,7 +2,7 @@
 
 Want to get Minecraft running natively on a Mac with an M1 "Apple Silicon" chip? Thanks to [the excellent work](https://gist.github.com/tanmayb123/d55b16c493326945385e815453de411a) by [Tanmay Bakshi](https://gist.github.com/tanmayb123), it's possible!
 
-This repo contains a wrapper script to be used with [MultiMC](https://multimc.org) that will configure any MultiMC instance to use the Apple Silicon native libraries from Tanmay's work. All you have to do is set the wrapper command and make sure you're using an M1-compatible JDK, and it should just work.
+This repo contains a wrapper script to be used with [MultiMC](https://multimc.org) that will configure any MultiMC instance to use the Apple Silicon native libraries from Tanmay's work. All you have to do is set the wrapper command and make sure you're using an M1-compatible JDK, and it should just work. This fork should automatically be compatible with all versions of Minecraft and is compatible with Forge based modpacks as long as you use Java 8 instead of 11.
 
 ## Setup and Usage
 
@@ -33,11 +33,9 @@ git clone https://github.com/yusefnapora/m1-multimc-hack.git
 
 ### Configure MultiMC
 
-Create a new Minecraft instance in MultiMC (or duplicate an existing one), then click "Edit Instance" in the sidebar.
+Go to Settings, then navigate to the Java tab on the right. Then hit "Auto-detect".
 
-![Screenshot of MultiMC with "Edit Instance" highlighted](./screenshots/edit-instance.png)
-
-Go to Settings, then make sure the "Java Installation" checkbox is checked. Then hit "Auto-detect".
+![Screenshot of MultiMC with "Settings" highlighted](./screenshots/settings.png)
 
 ![Screenshot of instance Settings pane with "Auto-detect" button highlighted](./screenshots/detect-jvm.png)
 
@@ -45,7 +43,7 @@ It should open a window with a list of Java versions. Find the one that says "zu
 
 ![Screenshot of JVM list with correct JVM highlighted](./screenshots/select-zulu-jvm.png)
 
-Still in the Settings pane, switch to the "Custom Commands" tab. Check the "Custom Commands" checkbox. In the "Wrapper Command" box, enter the full path to the `mcwrap.py` script from this repo, e.g. `/Users/your-username/stuff/m1-multimc-hack/mcwrap.py`.
+Still in the Settings pane, switch to the "Custom Commands" tab. In the "Wrapper Command" box, enter the full path to the `mcwrap.py` script from this repo, e.g. `/Users/your-username/stuff/m1-multimc-hack/mcwrap.py`.
 
 ![Screenshot of Custom Commands tab, with Wrapper Command box highlighted](./screenshots/custom-command.png)
 
@@ -58,20 +56,6 @@ ls ~/Minecraft/m1-multimc-hack/mcwrap.py | pbcopy
 This will expand the `~` character to the full path to your home directory (e.g. `/Users/yourname`), and copy the whole thing onto your clipboard using the `pbcopy` command. Now you can paste it into the "Wrapper Command" box.
 
 That's it! You should be able to launch the instance and run with native performance.
-
-### Optional - Mods
-
-Mods should work fine in this fork provided that you use Java 8 instead of 11.
-
-## Optional - Global Configuration
-
-The instructions above will enable the native Apple Silicon libs for a single MultiMC instance, but if you want, you can enable them for _all_ instances. Just enable the ARM JDK and set the Wrapper Command in the main MultiMC Settings window instead of the instance settings.
-
-If you do set the configuration globally, you can always change it to an Intel JDK and remove the wrapper command on a per-instance basis, for example if you want to play with Forge mods before compatibility is sorted out.
-
-## Minecraft Version Compatibility
-
-All versions of Minecraft should work in this fork
 
 ## Support, etc
 
