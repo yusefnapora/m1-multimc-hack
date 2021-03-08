@@ -59,7 +59,7 @@ That's it! You should be able to launch the instance and run with native perform
 
 ## Support, etc
 
-I did none of the work here except for stitching files from a few competing forks together.
+I did none of the work here except for stitching files from a few competing forks together and fixing LWJGL 2 for M1. Patches are soon to be uploaded.
 
 The files `lwjglfat.jar` and all libraries in the `lwjglnatives` folder were compiled by Tanmay from the source available at https://www.lwjgl.org/source and are subject to its [BSD-style license terms](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
 
