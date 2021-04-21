@@ -1,5 +1,8 @@
 # m1-multimc-hack
 
+NOTE: You will need to visit the "Version" tab in MultiMC for the script to properly detect the version of Minecraft you're running.
+
+
 OptiFine support is here! Use the new pre6 version for 1.12! (older versions will be updated later)
 https://github.com/sp614x/optifine/issues/4824
 
