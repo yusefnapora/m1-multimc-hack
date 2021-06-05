@@ -35,7 +35,7 @@ mkdir -p ~/Minecraft
 cd ~/Minecraft
 
 # clone this repo
-git clone https://github.com/yusefnapora/m1-multimc-hack.git
+git clone https://github.com/r58Playz/m1-multimc-hack.git
 ```
 
 ### Configure MultiMC
@@ -65,8 +65,6 @@ This will expand the `~` character to the full path to your home directory (e.g.
 That's it! You should be able to launch the instance and run with native performance.
 
 ## Support, etc
-
-I did none of the work here except for stitching files from a few competing forks together and fixing LWJGL 2 for M1. Patches are soon to be uploaded.
 
 The files `lwjglfat.jar` and all libraries in the `lwjglnatives` folder were compiled by Tanmay from the source available at https://www.lwjgl.org/source and are subject to its [BSD-style license terms](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
 
