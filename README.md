@@ -15,7 +15,8 @@ This repo contains a wrapper script to be used with [MultiMC](https://multimc.or
 
 ### Pre-requisites
 
-First, install the [Zulu Java 8 JRE for macOS ARM64](https://cdn.azul.com/zulu/bin/zulu8.52.0.23-ca-jre8.0.282-macosx_aarch64.dmg).
+First, install the [Zulu Java 8 JRE for macOS ARM64](https://cdn.azul.com/zulu/bin/zulu8.52.0.23-ca-jre8.0.282-macosx_aarch64.dmg) for 1.16 and below.
+Next, install the  [Zulu Java 16 JRE for macOS ARM64](https://cdn.azul.com/zulu/bin/zulu16.30.19-ca-jdk16.0.1-macosx_aarch64.dmg) for 1.17 and above.
 
 You'll also need a standard install of MultiMC.
 
