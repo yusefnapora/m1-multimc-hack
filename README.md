@@ -65,6 +65,11 @@ This will expand the `~` character to the full path to your home directory (e.g.
 
 That's it! You should be able to launch the instance and run with native performance.
 
+### 1.17
+If you usually play on 1.16 and below, then for each 1.17 and above instance just override the global JVM and select the one that says "zulu-16".
+
+Otherwise just set the global JVM to the one that says "zulu-16" and override each 1.16 and below instance's jvm to the one that says "zulu-8".
+
 ## Support, etc
 
 The files `lwjglfat.jar` and all libraries in the `lwjglnatives` folder were compiled by Tanmay from the source available at https://www.lwjgl.org/source and are subject to its [BSD-style license terms](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
