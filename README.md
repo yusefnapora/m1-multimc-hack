@@ -3,9 +3,24 @@
 NOTE: You will need to visit the "Version" tab in MultiMC for the script to properly detect the version of Minecraft you're running.
 
 
-OptiFine support is here! Use the new pre6 version for 1.12! (older versions will be updated later)
-https://github.com/sp614x/optifine/issues/4824
+Optifine fix is HERE!
+Optifine used to cause a NSWindowInconsistencyException during launch. Full error here:
+```
+WARNING: NSWindow drag regions should only be invalidated on the Main Thread! This will throw an exception in the future. Called from (
+	0   AppKit                              0x00007fff32319e39 -[NSWindow(NSWindow_Theme) _postWindowNeedsToResetDragMarginsUnlessPostingDisabled] + 371
+	1   AppKit                              0x00007fff323444fe -[NSThemeFrame setStyleMask:] + 137
+	2   AppKit                              0x00007fff3234434c __25-[NSWindow setStyleMask:]_block_invoke + 1908
+	3   AppKit                              0x00007fff32343b7e NSPerformVisuallyAtomicChange + 132
+	4   AppKit                              0x00007fff32343a89 -[NSWindow setStyleMask:] + 184
+	5   liblwjgl.dylib                      0x000000011434bcca Java_org_lwjgl_opengl_MacOSXDisplay_nSetResizable + 90
+	6   ???                                 0x0000000114ced407 0x0 + 4644066311
+	7   ???                                 0x0000000114cdcffd 0x0 + 4643999741
+)
 
+```
+
+The cause is the `[NSWindow setStyleMask:]` call in the function `Java_org_lwjgl_opengl_MacOSXDisplay_nSetResizable`.
+It was fixed by just adding a function call to run `[NSWindow setStyleMask:]` on the main thread.
 
 Want to get Minecraft running natively on a Mac with an M1 "Apple Silicon" chip? Thanks to [the excellent work](https://gist.github.com/tanmayb123/d55b16c493326945385e815453de411a) by [Tanmay Bakshi](https://gist.github.com/tanmayb123), it's possible!
 
