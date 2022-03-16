@@ -1,5 +1,6 @@
-# m1-multimc-hack
+## This repo is archived. I recommend anyone who is still using this repo to switch to [ManyMC](https://github.com/MinecraftMachina/ManyMC) which includes these patches as well.
 
+# m1-multimc-hack
 NOTE: You will need to visit the "Version" tab in MultiMC for the script to properly detect the version of Minecraft you're running.
 
 
